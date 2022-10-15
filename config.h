@@ -5,12 +5,10 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 0;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const int startwithgaps[]    = { 0 };	/* 1 means gaps are used by default, this can be customized for each tag */
-static const unsigned int gappx[]   = { 10 };   /* default gap between windows in pixels, this can be customized for each tag */
+static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
+static const unsigned int gappx[]   = { 8 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const char *fonts[]          = {
   "monospace:size=14:pixelsize=11:antialias=true:autohint=true",
-	"siji:size=12:pixelsize=18:antialias=true:autohint=true",
-	"JoyPixels:pixelsize=12:antialias=true:autohint=true",
 };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#1f2227";
@@ -63,7 +61,7 @@ static const Layout layouts[] = {
 #include <X11/XF86keysym.h>
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+/* static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
 static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
