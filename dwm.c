@@ -58,7 +58,7 @@
 #define TEXTW(X)                (drw_fontset_getwidth(drw, (X)) + lrpad)
 #define GAP_TOGGLE 100
 #define GAP_RESET  0
-+
+
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
