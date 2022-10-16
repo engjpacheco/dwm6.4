@@ -3,12 +3,15 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
-static const int showbar            = 0;        /* 0 means no bar */
+static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 8 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const char *fonts[]          = {
-  "monospace:size=14:pixelsize=11:antialias=true:autohint=true",
+
+	"siji:size=14:pixelsize=18:antialias=true:autohint=true",
+	"monospace:size=18:pixelsize=12:antialias=true:autohint=true",
+	"JoyPixels:pixelsize=12:antialias=true:autohint=true",
 };
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#1f2227";
@@ -58,6 +61,7 @@ static const Layout layouts[] = {
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+#include "movestack.c"
 #include <X11/XF86keysym.h>
 
 /* commands */
@@ -72,6 +76,8 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,	          	XK_d,      spawn,          SHCMD("dmenuunicode") },
   { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
   { MODKEY,                       XK_q,      killclient,     {0} },
