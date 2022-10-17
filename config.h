@@ -42,10 +42,13 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
-  { "St",       "htop",     NULL,       0,            1,           -1 },
-  { "St",       "term",     NULL,       0,            1,           -1 },
+	{ "Firefox",      NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "qutebrowser",  NULL,       NULL,       1 << 2,       0,           -1 },
+  { "St",           "htop",     NULL,       0,            1,           -1 },
+  { "St",           "term",     NULL,       0,            1,           -1 },
+  { "St",           "neomutt",  NULL,       0,            1,           -1 },
+  { "St",           "mpv",      NULL,       0,            1,           -1 },
+  { "St",           "vifm",     NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -78,7 +81,12 @@ static const Layout layouts[] = {
 /* commands */
 /* static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
 static const char *termcmd[]  = { "st", NULL };
+
+/* scratchpads */
 static const char *sctpad[]  = { "sctpad", "term", NULL };
+static const char *spnmut[]  = { "sctpad", "neomutt", NULL };
+static const char *spfm[]  = { "sctpad", "vifm", NULL };
+static const char *spbrowser[]  = { "qutebrowser", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -87,6 +95,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -l 20 -c") },
   { MODKEY|ShiftMask,	          	XK_d,      spawn,          SHCMD("dmenuunicode") },
+  { MODKEY,                       XK_e,      spawn,          {.v = spnmut } },
   { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
@@ -94,7 +103,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
   { MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
+	{ MODKEY,                       XK_w,      spawn,          {.v = spbrowser } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
   { MODKEY,                       XK_Tab,    view,           {0} },
@@ -107,6 +116,7 @@ static const Key keys[] = {
 
   /* the alt key commands */
 
+  { MODKEY1,                      XK_e,      spawn,          {.v = spfm} },
   { MODKEY1,                      XK_p,      spawn,          SHCMD("memnot") },
   { MODKEY1,                      XK_period, spawn,          SHCMD("calnot") },
   { 0,                            XK_Print,  spawn,          SHCMD("scrot") },
