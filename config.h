@@ -45,6 +45,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
   { "St",       "htop",     NULL,       0,            1,           -1 },
+  { "St",       "term",     NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -77,7 +78,7 @@ static const Layout layouts[] = {
 /* commands */
 /* static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
 static const char *termcmd[]  = { "st", NULL };
-static const char *sctpad[]  = { "st", "-n", "htop", "-g", "100x30+400+100", "-e", "htop", NULL };
+static const char *sctpad[]  = { "sctpad", "term", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
