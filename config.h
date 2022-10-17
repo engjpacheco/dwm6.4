@@ -44,6 +44,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
+  { "St",       "htop",     NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -76,10 +77,12 @@ static const Layout layouts[] = {
 /* commands */
 /* static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
 static const char *termcmd[]  = { "st", NULL };
+static const char *sctpad[]  = { "st", "-n", "htop", "-g", "100x30+400+100", "-e", "htop", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
   { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = sctpad } },
   { MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -l 20 -c") },
   { MODKEY|ShiftMask,	          	XK_d,      spawn,          SHCMD("dmenuunicode") },
@@ -105,6 +108,7 @@ static const Key keys[] = {
 
   { MODKEY1,                      XK_p,      spawn,          SHCMD("memnot") },
   { MODKEY1,                      XK_period, spawn,          SHCMD("calnot") },
+  { 0,                            XK_Print,  spawn,          SHCMD("scrot") },
 
   /* tags keys */
 
