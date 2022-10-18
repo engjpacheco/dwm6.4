@@ -44,12 +44,13 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",      NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "qutebrowser",  NULL,       NULL,       1 << 2,       0,           -1 },
+	{ "qutebrowser",  NULL,       NULL,       0,            0,           -1 },
   { "St",           "htop",     NULL,       0,            1,           -1 },
   { "St",           "term",     NULL,       0,            1,           -1 },
   { "St",           "neomutt",  NULL,       0,            1,           -1 },
   { "St",           "mpv",      NULL,       0,            1,           -1 },
   { "St",           "vifm",     NULL,       0,            1,           -1 },
+  { "St",           "pulsemixer",     NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
@@ -87,7 +88,9 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *sctpad[]  = { "sctpad", "term", NULL };
 static const char *spnmut[]  = { "sctpad", "neomutt", NULL };
 static const char *spfm[]  = { "sctpad", "vifm", NULL };
+static const char *sphtop[]  = { "sctpad", "htop", NULL };
 static const char *spbrowser[]  = { "qutebrowser", NULL };
+static const char *sppulsemixer[]  = {"sctpad", "pulsemixer", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -103,6 +106,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+  { MODKEY,                       XK_p,      spawn,          {.v = sphtop } },
+  { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = sppulsemixer } },
   { MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_w,      spawn,          {.v = spbrowser } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
