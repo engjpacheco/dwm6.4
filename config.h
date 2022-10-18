@@ -14,10 +14,10 @@ static const char *fonts[]          = {
 	"JoyPixels:pixelsize=12:antialias=true:autohint=true",
 };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#1f2227";
+static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#1f2227";
+static const char col_gray4[]       = "#000000";
 static const char col_cyan[]        = "#458588";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
