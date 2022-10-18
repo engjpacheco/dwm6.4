@@ -1996,7 +1996,7 @@ unmanage(Client *c, int destroyed)
 	free(c);
 	focus(nc);
 	if(fullscreen)
-		togglefullscreen();
+		/* togglefullscreen(); */
 	updateclientlist();
 	arrange(m);
 }
