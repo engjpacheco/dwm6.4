@@ -79,6 +79,7 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 #include "movestack.c"
+#include "shiftviewclients.c"
 #include <X11/XF86keysym.h>
 
 /* commands */
@@ -119,6 +120,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+  { ControlMask,                  XK_Tab,    shiftviewclients, {.i = +1} },
 
   /* the alt key commands */
 
