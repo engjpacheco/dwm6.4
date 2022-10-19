@@ -5,6 +5,8 @@ static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
+static const int vertpad            = 5;       /* vertical padding of bar */
+static const int sidepad            = 10;       /* horizontal padding of bar */
 static const int startwithgaps[]    = { 1 };	/* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 8 };   /* default gap between windows in pixels, this can be customized for each tag */
 static const char *fonts[]          = {
@@ -42,14 +44,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Firefox",      NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "qutebrowser",  NULL,       NULL,       0,            0,           -1 },
-  { "St",           "htop",     NULL,       0,            1,           -1 },
-  { "St",           "term",     NULL,       0,            1,           -1 },
-  { "St",           "neomutt",  NULL,       0,            1,           -1 },
-  { "St",           "mpv",      NULL,       0,            1,           -1 },
-  { "St",           "vifm",     NULL,       0,            1,           -1 },
+	/* class          instance          title       tags mask     isfloating   monitor */
+	{ "Firefox",      NULL,             NULL,       1 << 2,       0,           -1 },
+	{ "qutebrowser",  NULL,             NULL,       0,            0,           -1 },
+  { "St",           "htop",           NULL,       0,            1,           -1 },
+  { "St",           "term",           NULL,       0,            1,           -1 },
+  { "St",           "neomutt",        NULL,       0,            1,           -1 },
+  { "St",           "mpv",            NULL,       0,            1,           -1 },
+  { "St",           "vifm",           NULL,       0,            1,           -1 },
   { "St",           "pulsemixer",     NULL,       0,            1,           -1 },
 };
 
@@ -81,15 +83,15 @@ static const Layout layouts[] = {
 #include <X11/XF86keysym.h>
 
 /* commands */
-/* static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL }; */
+static const char *dmenucmd[] = { "dmenu_run", "-l", "20", "-c", "-p", "Run: ", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
 /* scratchpads */
-static const char *sctpad[]  = { "sctpad", "term", NULL };
-static const char *spnmut[]  = { "sctpad", "neomutt", NULL };
-static const char *spfm[]  = { "sctpad", "vifm", NULL };
-static const char *sphtop[]  = { "sctpad", "htop", NULL };
-static const char *spbrowser[]  = { "qutebrowser", NULL };
+/*                                    command   flag          NULL*/
+static const char *sctpad[]  = {      "sctpad", "term",       NULL };
+static const char *spnmut[]  = {      "sctpad", "neomutt",    NULL };
+static const char *spfm[]  = {        "sctpad", "vifm",       NULL };
+static const char *sphtop[]  = {      "sctpad", "htop",       NULL };
 static const char *sppulsemixer[]  = {"sctpad", "pulsemixer", NULL };
 
 static const Key keys[] = {
@@ -97,7 +99,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
   { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = sctpad } },
   { MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_d,      spawn,          SHCMD("dmenu_run -l 20 -c") },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
   { MODKEY|ShiftMask,	          	XK_d,      spawn,          SHCMD("dmenuunicode") },
   { MODKEY,                       XK_e,      spawn,          {.v = spnmut } },
   { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
@@ -109,7 +111,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_p,      spawn,          {.v = sphtop } },
   { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = sppulsemixer } },
   { MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_w,      spawn,          {.v = spbrowser } },
+	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
   { MODKEY,                       XK_Tab,    view,           {0} },
@@ -117,8 +119,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-  { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
+	{ ControlMask,                  XK_Tab,    shiftviewclients, { .i = +1 } },
+	{ ControlMask|ShiftMask,        XK_Tab,    shiftviewclients, { .i = -1 } },
+
 
   /* the alt key commands */
 
