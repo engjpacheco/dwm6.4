@@ -45,8 +45,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class          instance          title       tags mask     isfloating   monitor */
-	{ "Firefox",      NULL,             NULL,       1 << 2,       0,           -1 },
-	{ "qutebrowser",  NULL,             NULL,       0,            0,           -1 },
+	{ "qutebrowser",  NULL,             NULL,       1 << 2,       0,           -1 },
   { "St",           "htop",           NULL,       0,            1,           -1 },
   { "St",           "term",           NULL,       0,            1,           -1 },
   { "St",           "neomutt",        NULL,       0,            1,           -1 },
@@ -93,6 +92,7 @@ static const char *spnmut[]  = {      "sctpad", "neomutt",    NULL };
 static const char *spfm[]  = {        "sctpad", "vifm",       NULL };
 static const char *sphtop[]  = {      "sctpad", "htop",       NULL };
 static const char *sppulsemixer[]  = {"sctpad", "pulsemixer", NULL };
+static const char *spqutebrows[]  = { "sctpad", "qutebrowser", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -111,7 +111,7 @@ static const Key keys[] = {
   { MODKEY,                       XK_p,      spawn,          {.v = sphtop } },
   { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = sppulsemixer } },
   { MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_w,      spawn,          SHCMD("$BROWSER") },
+	{ MODKEY,                       XK_w,      spawn,          {.v = spqutebrows } },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
   { MODKEY,                       XK_Tab,    view,           {0} },
