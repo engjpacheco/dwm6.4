@@ -126,6 +126,7 @@ static const Key keys[] = {
   { MODKEY1,                      XK_p,      spawn,          SHCMD("memnot") },
   { MODKEY1,                      XK_period, spawn,          SHCMD("calnot") },
   { 0,                            XK_Print,  spawn,          SHCMD("scrot") },
+  { MODKEY,                       XK_F10,    spawn,          SHCMD("dmenurecord")},
 
   /* tags keys */
 
