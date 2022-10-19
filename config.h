@@ -119,9 +119,6 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ ControlMask,                  XK_Tab,    shiftviewclients, { .i = +1 } },
-	{ ControlMask|ShiftMask,        XK_Tab,    shiftviewclients, { .i = -1 } },
-
 
   /* the alt key commands */
 
