@@ -124,28 +124,28 @@ static const Key keys[] = {
 
 /* the alt key commands */
 
-{ MODKEY1,XK_e,      spawn,          {.v = spfm} },
-{ MODKEY1,XK_p,      spawn,          SHCMD("memnot") },
-{ MODKEY1,XK_period, spawn,          SHCMD("calnot") },
-{ 0,XK_Print,  spawn,          SHCMD("scrot") },
-{ MODKEY,XK_F10,    spawn,          SHCMD("dmenurecord")},
-
+  { MODKEY1,XK_e,      spawn,          {.v = spfm} },
+  { MODKEY1,XK_p,      spawn,          SHCMD("memnot") },
+  { MODKEY1,XK_period, spawn,          SHCMD("calnot") },
+  { 0,XK_Print,  spawn,          SHCMD("scrot") },
+  { MODKEY,XK_F10,    spawn,          SHCMD("dmenurecord")},
+  
 /* tags keys */
-
-TAGKEYS(                        XK_1,                      0)
-TAGKEYS(                        XK_2,                      1)
-TAGKEYS(                        XK_3,                      2)
-TAGKEYS(                        XK_4,                      3)
-TAGKEYS(                        XK_5,                      4)
-TAGKEYS(                        XK_6,                      5)
-TAGKEYS(                        XK_7,                      6)
-TAGKEYS(                        XK_8,                      7)
-TAGKEYS(                        XK_9,                      8)
-{ MODKEY|ShiftMask,             XK_q,quit,{0} },
-{ MODKEY,                       XK_z,setgaps,                 {.i = -5 } },
-{ MODKEY,                       XK_x,setgaps,                 {.i = +5 } },
-{ MODKEY|ShiftMask,             XK_minus,setgaps,             {.i = GAP_RESET } },
-{ MODKEY|ShiftMask,             XK_equal,setgaps,             {.i = GAP_TOGGLE} },
+  
+  TAGKEYS(                        XK_1,                      0)
+  TAGKEYS(                        XK_2,                      1)
+  TAGKEYS(                        XK_3,                      2)
+  TAGKEYS(                        XK_4,                      3)
+  TAGKEYS(                        XK_5,                      4)
+  TAGKEYS(                        XK_6,                      5)
+  TAGKEYS(                        XK_7,                      6)
+  TAGKEYS(                        XK_8,                      7)
+  TAGKEYS(                        XK_9,                      8)
+  { MODKEY|ShiftMask,             XK_q,quit,{0} },
+  { MODKEY,                       XK_z,setgaps,                 {.i = -5 } },
+  { MODKEY,                       XK_x,setgaps,                 {.i = +5 } },
+  { MODKEY|ShiftMask,             XK_minus,setgaps,             {.i = GAP_RESET } },
+  { MODKEY|ShiftMask,             XK_equal,setgaps,             {.i = GAP_TOGGLE} },
 };
 
 /* button definitions */
