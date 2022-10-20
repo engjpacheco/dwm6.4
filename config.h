@@ -45,13 +45,13 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class          instance          title       tags mask     isfloating   monitor */
-	{ "qutebrowser",  NULL,             NULL,       1 << 1,       0,           -1 },
-  { "St",           "htop",           NULL,       0,            1,           -1 },
-  { "St",           "term",           NULL,       0,            1,           -1 },
-  { "St",           "neomutt",        NULL,       0,            1,           -1 },
-  { "St",           "mpv",            NULL,       0,            1,           -1 },
-  { "St",           "vifm",           NULL,       0,            1,           -1 },
-  { "St",           "pulsemixer",     NULL,       0,            1,           -1 },
+  { "qutebrowser",  NULL,             NULL,             1 << 1,       0,          -1 },
+  { "St",           "htop",           NULL,             0,            1,          -1 },
+  { "St",           "term",           NULL,             0,            1,          -1 },
+  { "St",           "neomutt",        NULL,             0,            1,          -1 },
+  { "St",           "mpv",            NULL,             0,            1,          -1 },
+  { "St",           "vifm",           NULL,             0,            1,          -1 },
+  { "St",           "pulsemixer",     NULL,             0,            1,          -1 },
 };
 
 /* layout(s) */
@@ -96,39 +96,39 @@ static const char *sppulsemixer[]  = {"sctpad", "pulsemixer", NULL };
 static const char *spqutebrows[]  = { "sctpad", "qutebrowser", NULL };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-  { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-  { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = sctpad } },
-  { MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-  { MODKEY|ShiftMask,	          	XK_d,      spawn,          SHCMD("dmenuunicode") },
-  { MODKEY,                       XK_e,      spawn,          {.v = spnmut } },
-  { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_j,      movestack,      {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_k,      movestack,      {.i = -1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-  { MODKEY,                       XK_p,      spawn,          {.v = sphtop } },
-  { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = sppulsemixer } },
-  { MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY,                       XK_w,      spawn,          {.v = spqutebrows } },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-  { MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-  { ControlMask,                  XK_Tab,    shiftviewclients, {.i = +1} },
+	/* modifier                     key         function          argument */
+  { MODKEY,                       XK_Return,  spawn,            {.v = termcmd } },
+  { MODKEY|ShiftMask,             XK_Return,  spawn,            {.v = sctpad } },
+  { MODKEY,                       XK_b,       togglebar,        {0} },
+	{ MODKEY,                       XK_d,       spawn,            {.v = dmenucmd } },
+  { MODKEY|ShiftMask,             XK_d,       spawn,            SHCMD("dmenuunicode") },
+  { MODKEY,                       XK_e,       spawn,            {.v = spnmut } },
+  { MODKEY,                       XK_h,       setmfact,         {.f = -0.05} },
+	{ MODKEY,                       XK_j,       focusstack,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_j,       movestack,        {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,       movestack,        {.i = -1 } },
+	{ MODKEY,                       XK_k,       focusstack,       {.i = -1 } },
+	{ MODKEY,                       XK_l,       setmfact,         {.f = +0.05} },
+  { MODKEY,                       XK_p,       spawn,            {.v = sphtop } },
+  { MODKEY|ShiftMask,             XK_p,       spawn,            {.v = sppulsemixer } },
+  { MODKEY,                       XK_q,       killclient,       {0} },
+	{ MODKEY,                       XK_w,       spawn,            {.v = spqutebrows } },
+	{ MODKEY,                       XK_space,   setlayout,        {0} },
+	{ MODKEY|ShiftMask,             XK_space,   togglefloating,   {0} },
+  { MODKEY,                       XK_Tab,     view,             {0} },
+	{ MODKEY,                       XK_comma,   focusmon,         {.i = -1 } },
+	{ MODKEY,                       XK_period,  focusmon,         {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_comma,   tagmon,           {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_period,  tagmon,           {.i = +1 } },
+  { ControlMask,                  XK_Tab,     shiftviewclients, {.i = +1} },
 
   /* the alt key commands */
 
-  { MODKEY1,                      XK_e,      spawn,          {.v = spfm} },
-  { MODKEY1,                      XK_p,      spawn,          SHCMD("memnot") },
-  { MODKEY1,                      XK_period, spawn,          SHCMD("calnot") },
-  { 0,                            XK_Print,  spawn,          SHCMD("scrot") },
-  { MODKEY,                       XK_F10,    spawn,          SHCMD("dmenurecord")},
+  { MODKEY1,XK_e,      spawn,          {.v = spfm} },
+  { MODKEY1,XK_p,      spawn,          SHCMD("memnot") },
+  { MODKEY1,XK_period, spawn,          SHCMD("calnot") },
+  { 0,XK_Print,  spawn,          SHCMD("scrot") },
+  { MODKEY,XK_F10,    spawn,          SHCMD("dmenurecord")},
 
   /* tags keys */
 
@@ -141,11 +141,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY,                       XK_z,      setgaps,        {.i = -5 } },
-	{ MODKEY,                       XK_x,      setgaps,        {.i = +5 } },
-	{ MODKEY|ShiftMask,             XK_minus,  setgaps,        {.i = GAP_RESET } },
-	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = GAP_TOGGLE} },
+	{ MODKEY|ShiftMask,             XK_q,quit,{0} },
+	{ MODKEY,                       XK_z,setgaps,                 {.i = -5 } },
+	{ MODKEY,                       XK_x,setgaps,                 {.i = +5 } },
+	{ MODKEY|ShiftMask,             XK_minus,setgaps,             {.i = GAP_RESET } },
+	{ MODKEY|ShiftMask,             XK_equal,setgaps,             {.i = GAP_TOGGLE} },
 };
 
 /* button definitions */
