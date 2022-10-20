@@ -87,13 +87,13 @@ static const char *dmenucmd[] = { "dmenu_run", "-l", "20", "-c", "-p", "Run: ", 
 static const char *termcmd[]  = { "st", NULL };
 
 /* scratchpads */
-/*                                    command   flag          NULL*/
-static const char *sctpad[]  = {      "sctpad", "term",       NULL };
-static const char *spnmut[]  = {      "sctpad", "neomutt",    NULL };
-static const char *spfm[]  = {        "sctpad", "vifm",       NULL };
-static const char *sphtop[]  = {      "sctpad", "htop",       NULL };
-static const char *sppulsemixer[]  = {"sctpad", "pulsemixer", NULL };
-static const char *spqutebrows[]  = { "sctpad", "qutebrowser", NULL };
+/*                                    command   flag            NULL*/
+static const char *sctpad[]  = {      "sctpad", "term",         NULL };
+static const char *spnmut[]  = {      "sctpad", "neomutt",      NULL };
+static const char *spfm[]  = {        "sctpad", "vifm",         NULL };
+static const char *sphtop[]  = {      "sctpad", "htop",         NULL };
+static const char *sppulsemixer[]  = {"sctpad", "pulsemixer",   NULL };
+static const char *spqutebrows[]  = { "sctpad", "qutebrowser",  NULL };
 
 static const Key keys[] = {
 	/* modifier                     key         function          argument */
@@ -124,11 +124,11 @@ static const Key keys[] = {
 
 /* the alt key commands */
 
-  { MODKEY1,XK_e,      spawn,          {.v = spfm} },
-  { MODKEY1,XK_p,      spawn,          SHCMD("memnot") },
-  { MODKEY1,XK_period, spawn,          SHCMD("calnot") },
-  { 0,XK_Print,  spawn,          SHCMD("scrot") },
-  { MODKEY,XK_F10,    spawn,          SHCMD("dmenurecord")},
+  { MODKEY1,                      XK_e,       spawn,            {.v = spfm} },
+  { MODKEY1,                      XK_p,       spawn,            SHCMD("memnot") },
+  { MODKEY1,                      XK_period,  spawn,            SHCMD("calnot") },
+  { 0,                            XK_Print,   spawn,            SHCMD("scrot") },
+  { MODKEY,                       XK_F10,     spawn,            SHCMD("dmenurecord") },
   
 /* tags keys */
   
@@ -141,7 +141,7 @@ static const Key keys[] = {
   TAGKEYS(                        XK_7,                      6)
   TAGKEYS(                        XK_8,                      7)
   TAGKEYS(                        XK_9,                      8)
-  { MODKEY|ShiftMask,             XK_q,quit,{0} },
+  { MODKEY|ShiftMask,             XK_q,quit,                    {0} },
   { MODKEY,                       XK_z,setgaps,                 {.i = -5 } },
   { MODKEY,                       XK_x,setgaps,                 {.i = +5 } },
   { MODKEY|ShiftMask,             XK_minus,setgaps,             {.i = GAP_RESET } },
