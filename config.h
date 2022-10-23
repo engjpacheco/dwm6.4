@@ -1,4 +1,4 @@
-/* See LICENSE file for copyright and license details. */
+/* ee LICENSE file for copyright and license details. */
 
 /* appearance */
 static const unsigned int borderpx  = 2;         /* border pixel of windows */
@@ -6,8 +6,8 @@ static const unsigned int snap      = 32;        /* snap pixel */
 static const int showbar            = 1;         /* 0 means no bar */
 static const char buttonbar[]       = "";      /*Icon left side of the bar */
 static const int topbar             = 1;         /* 0 means bottom bar */
-static const int vertpad            = 5;         /* vertical padding of bar */
-static const int sidepad            = 10;        /* horizontal padding of bar */
+static const int vertpad            = 0;         /* vertical padding of bar */
+static const int sidepad            = 0;        /* horizontal padding of bar */
 static const int startwithgaps[]    = { 1 };	   /* 1 means gaps are used by default, this can be customized for each tag */
 static const unsigned int gappx[]   = { 8 };     /* default gap between windows in pixels, this can be customized for each tag */
 static const char *fonts[]          = {
@@ -21,13 +21,19 @@ static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#000000";
-static const char col_cyan[]        = "#458588";
+static const char col_gray4[]       = "#eeeeee";
+static const char col_cyan[]        = "#005577";
+static const unsigned int baralpha = 0xd0;
+static const unsigned int borderalpha = OPAQUE;
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_cyan, col_gray4, col_gray2 },
-	[SchemeSel]  = { col_cyan, col_gray1,  col_cyan  },
-	[SchemeTitle]  = { col_cyan, col_gray4,  col_gray4  },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]  = { col_gray4, col_gray1,  col_cyan  },
+};
+static const unsigned int alphas[][3]      = {
+	/*               fg      bg        border     */
+	[SchemeNorm] = { OPAQUE, baralpha, borderalpha },
+	[SchemeSel]  = { OPAQUE, baralpha, borderalpha },
 };
 
 /* tagging */
