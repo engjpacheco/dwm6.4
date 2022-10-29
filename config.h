@@ -13,8 +13,7 @@ static const unsigned int gappx[]   = { 8 };     /* default gap between windows 
 static const char *fonts[]          = {
 
 	"siji:size=14:pixelsize=19:antialias=true:autohint=true",
-	/* "Iosevka Nerd Font Mono:size=18:pixelsize=11:antialias=true:autohint=true", */
-	"Iosevka Nerd Font Mono:antialias=true:pixelsize=11",
+	"monospace:antialias=true:pixelsize=11",
 	"JoyPixels:pixelsize=12:antialias=true:autohint=true",
 };
 static const char dmenufont[]       = "monospace:size=10";
